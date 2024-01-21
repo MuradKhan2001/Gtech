@@ -1,10 +1,10 @@
 import "./style.scss"
 
-const AddCategory = ()=>{
+const AddAdvert = ()=>{
 
     return <div className="drivers-container">
         <h1>Add- category</h1>
     </div>
 }
 
-export default AddCategory
+export default AddAdvert

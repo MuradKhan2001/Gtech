@@ -3,7 +3,7 @@ import {useContext, useEffect, useState, useRef} from "react";
 import axios from "axios";
 import {MyContext} from "../../App/App";
 
-const Partners = () => {
+const HomeImage = () => {
     let value = useContext(MyContext);
     const [photos, setPhotos] = useState(null)
     const [photosList, setPhotosList] = useState([])
@@ -27,7 +27,7 @@ const Partners = () => {
     };
 
     const getList = () => {
-        axios.get(`${value.url}/api/v1/photo/partner/`).then((response) => {
+        axios.get(`${value.url}/api/v1/photo/dashboard/`).then((response) => {
             setPhotosList(response.data);
         })
     };
@@ -38,9 +38,9 @@ const Partners = () => {
 
 
     const addPhoto = () => {
-        if (photos){
+        if (photos) {
             const post = {
-                image_type: "partner",
+                image_type: "main",
                 image: photos
             };
             axios.post(`${value.url}/api/v1/photo/`, post, {
@@ -67,7 +67,7 @@ const Partners = () => {
 
     return <div className="partners-container">
         <div className="top-side">
-            <input  id="photo" onChange={getInputPhoto} type="file"/>
+            <input id="photo" onChange={getInputPhoto} type="file"/>
             <div onClick={addPhoto} className="button-add">
                 Qo'shish
             </div>
@@ -89,4 +89,4 @@ const Partners = () => {
     </div>
 }
 
-export default Partners
+export default HomeImage
