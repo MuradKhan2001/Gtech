@@ -371,6 +371,12 @@ $Color2: #001020;
         display: flex;
         flex-wrap: wrap;
 
+        .serach-validate{
+          text-align: center;
+          font-weight: bold;
+          font-size: 24px;
+        }
+
         .slick-prev {
           display: none !important;
         }

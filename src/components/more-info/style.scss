@@ -285,7 +285,6 @@ $Color2: #001020;
       padding: 20px;
 
       p {
-
         font-size: 24px;
         font-weight: bold;
         color: $color-two;
@@ -300,6 +299,10 @@ $Color2: #001020;
         font-size: 16px;
         color: $color-one;
         overflow-y: auto;
+        p{
+          font-size: 18px;
+          font-weight: normal;
+        }
       }
 
       .button-shop {

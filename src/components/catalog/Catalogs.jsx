@@ -12,6 +12,7 @@ import Navbar from "../Navbar/Navbar";
 import Slider from "react-slick";
 import axios from "axios";
 import {useOnKeyPress} from "./useOnKeyPress";
+import Loader from "../loader/Loader";
 
 const Catalogs = () => {
     let value = useContext(MyContext);
@@ -59,6 +60,7 @@ const Catalogs = () => {
     const [pageNumber, setPageNumber] = useState(0);
     const pagesVisited = pageNumber * worksPage;
     const [searchText, setSearchText] = useState("")
+    const [searchValidate, setSearchValidate] = useState(false)
     const displayWorks = products.slice(pagesVisited, pagesVisited + worksPage).map((item, index) => {
         return <div key={index} className="click-slide-box">
             <div className="cardbox">
@@ -105,9 +107,11 @@ const Catalogs = () => {
                     </div>
                 </div>
             </div>
+
         </div>
     });
     const pageCount = Math.ceil(products.length / worksPage);
+    const [loader, setLoader] = useState(false)
 
     useEffect(() => {
         axios.get(`${value.url}/api/v1/category/`).then((response) => {
@@ -117,12 +121,17 @@ const Catalogs = () => {
     }, []);
 
     const filterProduct = () => {
+        setLoader(true)
         let text = sessionStorage.getItem('searchText')
         if (searchText) {
             text = searchText
         }
         axios.get(`${value.url}/api/v1/product/?search=${text}`).then((response) => {
+            if (response.data.length === 0 && searchText) {
+                setSearchValidate(true)
+            } else setSearchValidate(false)
             setProducts(response.data)
+            setLoader(false)
         })
         setProducts([])
         setSubcategoryId("")
@@ -130,6 +139,7 @@ const Catalogs = () => {
         setCategoryId("")
         setCategoryIndex("")
         sessionStorage.removeItem("searchText")
+
     }
 
     const filterSubcategory = (id, ind) => {
@@ -143,8 +153,10 @@ const Catalogs = () => {
     }
 
     const getProducts = (e) => {
+        setLoader(true)
         axios.get(`${value.url}/api/v1/product/?category=${e}`).then((response) => {
             setProducts(response.data)
+            setLoader(false)
         })
     }
 
@@ -164,7 +176,7 @@ const Catalogs = () => {
                 }, 3000)
             })
 
-        } else alert("Iltimos formani to'ldiring")
+        } else alert(t("formText"))
     }
 
     const showModalForm = (status, show) => {
@@ -242,7 +254,10 @@ const Catalogs = () => {
 
                 </div>
                 <div className="search-box">
-                    <input onChange={(e) => setSearchText(e.target.value)}
+                    <input onChange={(e) => {
+                        setSearchText(e.target.value)
+                        setSearchValidate(false)
+                    }}
                            placeholder={t("searchProduct")} type="text"/>
 
                     <div onClick={filterProduct} className="icon">
@@ -271,7 +286,8 @@ const Catalogs = () => {
 
             <div className="content">
                 <div className="row">
-                    {displayWorks}
+                    {searchValidate ? <div className="serach-validate">{t("searchValidate")}</div> : ""}
+                    {loader ? <Loader/> : displayWorks}
                 </div>
                 {
                     products.length > 0 ?

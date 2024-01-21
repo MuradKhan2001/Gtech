@@ -22,5 +22,7 @@
   "partners": "Hamkorlar",
   "productCount": "Maxsulotlar soni",
   "partnersCount": "Hamkorlar soni",
-  "catalogsCount": "Kataloglar soni"
+  "catalogsCount": "Kataloglar soni",
+  "searchValidate": "Siz izlagan mahsulot topilmadi!",
+  "formText": "Iltimos ma'lumotlarni kiriting!"
 }

@@ -64,7 +64,7 @@ function Product() {
                 }, 3000)
             })
 
-        } else alert("Iltimos formani to'ldiring")
+        } else alert(t("formText"))
     }
 
     useEffect(() => {
@@ -142,9 +142,9 @@ function Product() {
                     <p>
                         {product.translations[i18next.language].name}
                     </p>
-                    <p className="main-text">
+                    <div className="main-text">
                         <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(product.translations[i18next.language].description)}}/>
-                    </p>
+                    </div>
 
                     <div onClick={() => showModalForm("shop", true)}
                          className="button-shop">

@@ -185,7 +185,7 @@ const Home = () => {
                 }, 3000)
             })
 
-        } else alert("Iltimos formani to'ldiring")
+        } else alert(t("formText"))
     }
 
     const showModalForm = (status, show) => {
