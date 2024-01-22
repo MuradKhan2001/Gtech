@@ -49,7 +49,7 @@ const AddProduct = () => {
             const reader = new FileReader();
             reader.readAsDataURL(files[i]);
             reader.onload = function () {
-                let obj = {image: reader.result}
+                let obj = reader.result
                 photo_list.push(obj);
                 setPhotos(photo_list)
             };

@@ -41,7 +41,7 @@ const HomeImage = () => {
         if (photos) {
             const post = {
                 image_type: "main",
-                image: photos
+                photo: photos
             };
             axios.post(`${value.url}/api/v1/photo/`, post, {
                 headers: {

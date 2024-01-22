@@ -4,7 +4,7 @@ import {MyContext} from "../../App/App";
 import axios from "axios";
 import {CSSTransition} from "react-transition-group";
 
-const AboutUsAdmin = ()=>{
+const AboutUsAdmin = () => {
     let value = useContext(MyContext);
     const [modalShow, setModalShow] = useState({show: false})
     const nodeRef = useRef(null);
@@ -50,7 +50,7 @@ const AboutUsAdmin = ()=>{
                     }, ru: {
                         name: nameRu, description: descriptionRu
                     },
-                }, image
+                }, photo: image
             };
             axios.post(`${value.url}/api/v1/about-us/`, post, {
                 headers: {
@@ -147,7 +147,7 @@ const AboutUsAdmin = ()=>{
                             <img onClick={() => showModalForm("", false)} src="./images/x.png" alt=""/>
                         </div>
                         <div className="title">
-                           Ma'lumot qo'shish
+                            Ma'lumot qo'shish
                         </div>
                         <div className="form-order-info">
                             <input onChange={getInputPhoto} className="add-photo" type="file"/>
@@ -171,7 +171,7 @@ const AboutUsAdmin = ()=>{
                             <img onClick={() => showModalForm("", false)} src="./images/x.png" alt=""/>
                         </div>
                         <div className="title">
-                           Ma'lumotni tahrirlash
+                            Ma'lumotni tahrirlash
                         </div>
                         <div className="form-order-info">
                             <input onChange={getInputPhoto} className="add-photo" type="file"/>
@@ -198,7 +198,7 @@ const AboutUsAdmin = ()=>{
 
         <div className="header-side">
             <div onClick={() => showModalForm("add", true)} className="add-catolog">
-               Biz haqimizda +
+                Biz haqimizda +
             </div>
         </div>
 

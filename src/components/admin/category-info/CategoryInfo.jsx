@@ -50,7 +50,7 @@ const CategoryInfo = () => {
                     }, ru: {
                         name: nameRu, description: descriptionRu
                     },
-                }, image
+                }, photo: image
             };
             axios.post(`${value.url}/api/v1/catalog/`, post, {
                 headers: {

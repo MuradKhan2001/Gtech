@@ -41,7 +41,7 @@ const HomeImageMobile = () => {
         if (photos) {
             const post = {
                 image_type: "mobile",
-                image: photos
+                photo: photos
             };
             axios.post(`${value.url}/api/v1/photo/`, post, {
                 headers: {
