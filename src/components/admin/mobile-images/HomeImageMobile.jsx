@@ -77,7 +77,7 @@ const HomeImageMobile = () => {
             {
                 photosList.map((item, index) => {
                     return <div key={index} className="partner">
-                        <img src={item.image} alt=""/>
+                        <img src={value.url + item.image} alt=""/>
                         <div onClick={() => delPhoto(item.id)} className="del-btn">
                             O'chirish
                         </div>

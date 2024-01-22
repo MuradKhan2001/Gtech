@@ -263,7 +263,7 @@ const Home = () => {
                     <Slider {...settingsHomeSlider}>
                         {homePhoto ? homePhoto.map((item, index) => {
                             return <div key={index}>
-                                <img src={item.image} alt=""/>
+                                <img src={value.url + item.image} alt=""/>
                             </div>
                         }) : ""}
                     </Slider>
@@ -272,7 +272,7 @@ const Home = () => {
                     <Slider {...settingsHomeSlider}>
                         {mobileHomePhoto ? mobileHomePhoto.map((item, index) => {
                             return <div key={index}>
-                                <img src={item.image} alt=""/>
+                                <img src={value.url + item.image} alt=""/>
                             </div>
                         }) : ""}
                     </Slider>
@@ -423,7 +423,7 @@ const Home = () => {
                 <Slider {...settings}>
                     {partners.map((img, idx) => (
                         <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
-                            <img src={img.image} alt={img.img}/>
+                            <img src={value.url + img.image} alt={img.img}/>
                         </div>))}
                 </Slider>
             </div>

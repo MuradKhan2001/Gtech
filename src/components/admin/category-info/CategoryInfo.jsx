@@ -97,7 +97,7 @@ const CategoryInfo = () => {
                     }, ru: {
                         name: nameRu, description: descriptionRu
                     },
-                }, image
+                }, photo: image
             };
 
             axios.patch(`${value.url}/api/v1/catalog/${catalogId}/`, post, {

@@ -63,16 +63,14 @@ const AddProduct = () => {
             const reader = new FileReader();
             reader.readAsDataURL(files[i]);
             reader.onload = function () {
-                let obj = {image: reader.result}
+                let obj = reader.result
                 photo_list.push(obj);
                 if (photo_list.length === files.length) {
-                    // setPhotos(photo_list)
                     axios.post(`${value.url}/api/v1/product/${productId}/add_photo/`, {photos: photo_list}, {
                         headers: {
                             "Authorization": `Token ${localStorage.getItem("token")}`
                         }
                     }).then((response) => {
-                        console.log(response.data)
                         getProducts(subcategoryId)
                     });
                 }
