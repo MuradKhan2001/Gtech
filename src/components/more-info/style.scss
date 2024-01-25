@@ -194,12 +194,12 @@ $Color2: #001020;
     height: 500px;
     display: flex;
     padding-top: 70px;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-left: 80px;
     padding-right: 80px;
 
     .video {
-      width: 50%;
+      width: 550px;
       height: 100%;
       border-radius: 8px;
       padding: 5px;
@@ -292,6 +292,9 @@ $Color2: #001020;
       }
 
       .main-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: start;
         padding: 10px;
         width: 100%;

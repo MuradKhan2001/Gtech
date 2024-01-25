@@ -21,25 +21,30 @@ function AboutUs() {
     return (<div className="container-about">
         <Navbar/>
         <div className="title">{t('aboutus')}</div>
-        <div className="content">
-            <div className="video">
-                {aboutUs[0] ? <img src={aboutUs[0].image} alt=""/> : ""}
-            </div>
-            <div className="text">
-                <p>
-                    {aboutUs[0] ? <>
-                        {i18next.language === "uz" ? aboutUs[0].translations.uz.name :
-                            aboutUs[0].translations.ru.name}
-                    </> : ""}
-                </p>
-                <p className="main-text">
-                    {aboutUs[0] ? <>
-                        {i18next.language === "uz" ? aboutUs[0].translations.uz.description :
-                            aboutUs[0].translations.ru.description}
-                    </> : ""}
-                </p>
-            </div>
+
+        <div className="content-wrapper">
+            {
+                aboutUs.map((item, index)=>{
+                    return  <div key={index} className="content">
+                        <div className="video">
+                            <img src={item.image} alt=""/>
+                        </div>
+                        <div className="text">
+                            <p>
+                                {i18next.language === "uz" ? item.translations.uz.name :
+                                    item.translations.ru.name}
+                            </p>
+                            <p className="main-text">
+                                {i18next.language === "uz" ? item.translations.uz.description :
+                                    item.translations.ru.description}
+                            </p>
+                        </div>
+                    </div>
+                })
+            }
         </div>
+
+
         <Footer/>
     </div>);
 }

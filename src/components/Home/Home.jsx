@@ -31,7 +31,6 @@ const Home = () => {
     const [first_name, setFirst_name] = useState("")
     const [phone, setPhone] = useState("")
     const [description, setDescription] = useState("")
-    const [searchText, setSearchText] = useState("")
     const [countProduct, setCountProduct] = useState("")
     const [counterOn, setCounterOn] = useState(false)
 
@@ -196,7 +195,6 @@ const Home = () => {
     }
     const filterProduct = () => {
         navigate("/catalogs")
-        sessionStorage.setItem("searchText", searchText)
     }
 
     useOnKeyPress(filterProduct, 'Enter');
@@ -252,9 +250,8 @@ const Home = () => {
 
             <div className="home_contents">
                 <div className="search-box">
-                    <input onChange={(e) => setSearchText(e.target.value)}
+                    <input value={value.searchText} onChange={(e) => value.setSearchText(e.target.value)}
                            placeholder={t("searchProduct")} type="text"/>
-
                     <div className="icon">
                         <img onClick={filterProduct} src="./images/search.png" alt=""/>
                     </div>
@@ -297,8 +294,12 @@ const Home = () => {
                                     <img src={item.image} alt=""/>
                                 </div>
                                 <div className="text">
-                                    <h3>{i18next.language === "ru" ? item.translations.ru.name : item.translations.uz.name}</h3>
-                                    {i18next.language === "ru" ? item.translations.ru.description : item.translations.uz.description}
+                                    <div className="title-slider">
+                                        {i18next.language === "ru" ? item.translations.ru.name : item.translations.uz.name}
+                                    </div>
+                                    <div className="text-description">
+                                        {i18next.language === "ru" ? item.translations.ru.description : item.translations.uz.description}
+                                    </div>
                                 </div>
                             </div>
                         </Carousel.Item>

@@ -37,11 +37,17 @@ $Color1: #ffffff;
     .item-footer {
       font-size: 20px;
       margin-top: 10px;
+      div {
+        a {
+          text-decoration: none;
+          color: white;
+        }
+      }
     }
   }
 
   .section-menu {
-    width: 15%;
+    width: 20%;
     height: 100%;
 
     .title-footer {
@@ -55,6 +61,8 @@ $Color1: #ffffff;
       cursor: pointer;
       font-size: 20px;
       margin-top: 10px;
+
+
     }
   }
 
@@ -130,6 +138,7 @@ $Color1: #ffffff;
       display: flex;
       justify-content: flex-start;
       align-items: center;
+
       img {
         width: 60%;
       }
@@ -137,10 +146,12 @@ $Color1: #ffffff;
 
     .section-contact {
       width: 100%;
+
       .title-footer {
         margin-top: 40px;
         font-size: 20px;
       }
+
       .item-footer {
         font-size: 18px;
       }
@@ -148,6 +159,7 @@ $Color1: #ffffff;
 
     .section-menu {
       width: 100%;
+
       .title-footer {
         margin-top: 30px;
         font-size: 20px;
@@ -160,19 +172,21 @@ $Color1: #ffffff;
 
     .section-social-medias {
       width: 100%;
+
       .title-footer {
         font-size: 20px;
       }
 
       .icons-box {
         width: 100%;
+
         img {
           margin-right: 10px;
           width: 35px;
         }
       }
 
-      .btns{
+      .btns {
         margin-bottom: 40px;
         display: flex;
       }

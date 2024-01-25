@@ -57,7 +57,7 @@ const Admin = () => {
             img: "../images/admin/handshake.png"
         },
         {
-            name: "Biz haqimizda",
+            name: "It xizmatlar va yechimlar",
             url: "/about-us",
             img: "../images/admin/info.png"
         },

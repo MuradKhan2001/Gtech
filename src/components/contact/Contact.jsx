@@ -36,7 +36,8 @@ const Contact = () => {
                             {t("phone")}
                         </div>
                         <div className="text">
-                            +998 90 135 99 99
+                            <div><a href={`tel: +998 90 135 99 99`} className="name"> +998 90 135 99 99</a></div>
+                            <div><a href={`tel: +998 97 710 70 10`} className="name"> +998 97 710 70 10</a></div>
                         </div>
                     </div>
                 </div>
@@ -65,7 +66,22 @@ const Contact = () => {
                             {t("tg")}
                         </div>
                         <div className="text">
-                            @globalTechno
+                            <div><a href="https://t.me/globalTechno" target="_blank" className="name"> @globalTechno</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="content">
+                    <div className="img-box">
+                        <img src="./images/email_outlined.png" alt=""/>
+                    </div>
+                    <div className="mobile-box">
+                        <div className="name-box">
+                            {t("tg")}
+                        </div>
+                        <div className="text">
+                            farorzikulov@gmail.com
                         </div>
                     </div>
                 </div>

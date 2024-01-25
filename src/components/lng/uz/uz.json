@@ -1,5 +1,5 @@
 {
-  "home": "Biz haqimizda",
+  "home": "Bosh sahifa",
   "services": "Katalog",
   "aboutus": "IT yechimlar va xizmatlar",
   "tariff": "Aloqa",
@@ -23,7 +23,7 @@
   "productCount": "Maxsulotlar soni",
   "partnersCount": "Hamkorlar soni",
   "catalogsCount": "Kataloglar soni",
-  "searchValidate": "Siz izlagan mahsulot topilmadi!",
+  "searchValidate": "Siz izlagan maxsulot topilmadi!",
   "formText": "Iltimos ma'lumotlarni kiriting!",
   "map": "Xaritadan ko'rsatish"
 }

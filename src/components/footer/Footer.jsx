@@ -27,10 +27,8 @@ const Footer = () => {
                     {t("tariff")}
                 </div>
                 <div className="item-footer">
-                    +998 90 135 99 99
-                </div>
-                <div className="item-footer">
-                    +998 97 710 70 10
+                    <div><a href={`tel: +998 90 135 99 99`} className="name"> +998 90 135 99 99</a></div>
+                    <div><a href={`tel: +998 97 710 70 10`} className="name"> +998 97 710 70 10</a></div>
                 </div>
 
                 <div className="title-footer">

@@ -7,6 +7,7 @@ export const MyContext = createContext();
 
 function App() {
     const [url, setUrl] = useState('https://api.gtech.uz');
+    const [searchText, setSearchText] = useState("");
 
     const admin = useMemo(() => localStorage.getItem('token'), []);
 
@@ -18,7 +19,9 @@ function App() {
     return (
         <>
             <MyContext.Provider value={{
-                url
+                url,
+                searchText,
+                setSearchText
             }}>
                 <Routes>
                     {

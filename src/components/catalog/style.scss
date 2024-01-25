@@ -371,7 +371,7 @@ $Color2: #001020;
         display: flex;
         flex-wrap: wrap;
 
-        .serach-validate{
+        .serach-validate {
           text-align: center;
           font-weight: bold;
           font-size: 24px;
@@ -416,6 +416,7 @@ $Color2: #001020;
                   img {
                     width: 100%;
                     height: 100%;
+                    object-fit: cover;
                   }
                 }
 
@@ -476,7 +477,7 @@ $Color2: #001020;
                   align-items: center;
 
                   img {
-                    margin-right: 10px;
+                    margin-right: 5px;
                     width: 25px;
                   }
                 }
@@ -485,6 +486,7 @@ $Color2: #001020;
                   display: flex;
                   align-items: center;
                   color: #374B87;
+                  font-size: 14px;
 
                   &:hover {
                     text-decoration: underline;
@@ -496,7 +498,7 @@ $Color2: #001020;
 
                   img {
                     margin-left: -2px;
-                    width: 25px;
+                    width: 22px;
                     transition: 0.3s;
 
                   }
@@ -545,6 +547,10 @@ $Color2: #001020;
       }
     }
   }
+
+  .v100 {
+    height: 70vh;
+  }
 }
 
 @media (max-width: 768px) {
@@ -564,6 +570,7 @@ $Color2: #001020;
 
       .header-side-catalog {
         display: block;
+
         .icon-filter {
           position: relative;
           align-items: center;
@@ -628,6 +635,7 @@ $Color2: #001020;
         .search-box {
           margin-top: 30px;
           width: 100%;
+
           input {
             padding-left: 20px;
             width: 90%;

@@ -129,7 +129,7 @@ $Color2: #001020;
         width: 30%;
 
         .img-box {
-          width: 100px;
+          width: 70px;
           margin: 0 auto;
 
           img {
@@ -139,17 +139,22 @@ $Color2: #001020;
 
         .name-box {
           margin-top: 20px;
-          margin-bottom: 20px;
-          font-size: 40px;
+          margin-bottom: 5px;
+          font-size: 26px;
           font-weight: bold;
           color: $Color2;
           text-align: center;
         }
-
         .text {
-          font-size: 20px;
+          font-size: 18px;
           text-align: center;
           color: #3a3a3a;
+          div{
+            a{
+              text-decoration: none;
+              color: #3a3a3a;
+            }
+          }
         }
       }
     }
@@ -214,6 +219,7 @@ $Color2: #001020;
         .text_title {
           font-size: 24px;
         }
+
         .line_title {
           width: 40%;
         }
@@ -221,8 +227,10 @@ $Color2: #001020;
 
       .title_home_two {
         margin-top: 30px;
+
         .text_title {
           font-size: 20px;
+
           span {
             color: $Color1;
           }
@@ -254,7 +262,8 @@ $Color2: #001020;
 
           .bottom_btns {
             .app-btn {
-              width: 160px!important;
+              width: 160px !important;
+
               .left {
                 img {
                   width: 25px;
@@ -282,6 +291,7 @@ $Color2: #001020;
           width: 100%;
           display: flex;
           justify-content: center;
+
           img {
             margin-top: 20px;
             margin-left: 0px;
@@ -299,20 +309,24 @@ $Color2: #001020;
           width: 100%;
           display: flex;
           align-items: center;
+
           .img-box {
-            width: 16%;
+            width: 15%;
             img {
               width: 100%;
             }
           }
 
-          .mobile-box{
-            width: 70%;
-            padding-left: 30px;
+          .mobile-box {
+            overflow: hidden;
+            width: 80%;
+            padding-left: 20px;
+
             .name-box {
               font-size: 26px;
               text-align: start;
             }
+
             .text {
               font-size: 20px;
               text-align: start;

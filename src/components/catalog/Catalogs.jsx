@@ -59,7 +59,6 @@ const Catalogs = () => {
     const worksPage = 12;
     const [pageNumber, setPageNumber] = useState(0);
     const pagesVisited = pageNumber * worksPage;
-    const [searchText, setSearchText] = useState("")
     const [searchValidate, setSearchValidate] = useState(false)
     const displayWorks = products.slice(pagesVisited, pagesVisited + worksPage).map((item, index) => {
         return <div key={index} className="click-slide-box">
@@ -117,17 +116,14 @@ const Catalogs = () => {
         axios.get(`${value.url}/api/v1/category/`).then((response) => {
             setCategoryList(response.data);
         })
+        document.getElementById("search").focus()
         filterProduct()
     }, []);
 
     const filterProduct = () => {
         setLoader(true)
-        let text = sessionStorage.getItem('searchText')
-        if (searchText) {
-            text = searchText
-        }
-        axios.get(`${value.url}/api/v1/product/?search=${text}`).then((response) => {
-            if (response.data.length === 0 && searchText) {
+        axios.get(`${value.url}/api/v1/product/?search=${value.searchText.trim().length > 0 && value.searchText}`).then((response) => {
+            if (response.data.length === 0 && value.searchText) {
                 setSearchValidate(true)
             } else setSearchValidate(false)
             setProducts(response.data)
@@ -138,8 +134,6 @@ const Catalogs = () => {
         setSubcategoryList([])
         setCategoryId("")
         setCategoryIndex("")
-        sessionStorage.removeItem("searchText")
-
     }
 
     const filterSubcategory = (id, ind) => {
@@ -189,7 +183,6 @@ const Catalogs = () => {
     useOnKeyPress(filterProduct, 'Enter');
 
     return <div className="catalog-wrapper">
-        <Navbar/>
         <CSSTransition
             in={modalShow.show}
             nodeRef={nodeRef}
@@ -233,7 +226,8 @@ const Catalogs = () => {
             </div>
         </CSSTransition>
 
-        <div className="catalog-container">
+        <Navbar/>
+        <div className={`catalog-container ${products.length === 0 ? "v100" : ""}`}>
             <div className="header-side-catalog">
                 <div className="icon-filter">
                     <div className="top-btn">
@@ -254,8 +248,8 @@ const Catalogs = () => {
 
                 </div>
                 <div className="search-box">
-                    <input onChange={(e) => {
-                        setSearchText(e.target.value)
+                    <input id="search" value={value.searchText} onChange={(e) => {
+                        value.setSearchText(e.target.value)
                         setSearchValidate(false)
                     }}
                            placeholder={t("searchProduct")} type="text"/>
@@ -277,6 +271,7 @@ const Catalogs = () => {
                         <div onClick={() => {
                             setSubcategoryId(item.id)
                             getProducts(item.id)
+                            value.setSearchText("")
                         }} className={`sub-category ${subcategoryId === item.id ? "active" : ""} `}>
                             {item.translations.uz.name}
                         </div>
@@ -306,7 +301,6 @@ const Catalogs = () => {
                 }
             </div>
         </div>
-
         <Footer/>
 
     </div>
