@@ -117,7 +117,14 @@ const Catalogs = () => {
             setCategoryList(response.data);
         })
         document.getElementById("search").focus()
-        filterProduct()
+
+        if (value.searchText.trim().length > 0) {
+            filterProduct()
+        } else {
+            axios.get(`${value.url}/api/v1/product/?main=true`).then((response) => {
+                setProducts(response.data)
+            })
+        }
     }, []);
 
     const filterProduct = () => {
@@ -143,7 +150,6 @@ const Catalogs = () => {
             let newList = response.data.filter((item) => item.category == id)
             setSubcategoryList(newList);
         })
-
     }
 
     const getProducts = (e) => {
