@@ -13,6 +13,7 @@ import Slider from "react-slick";
 import axios from "axios";
 import {useOnKeyPress} from "./useOnKeyPress";
 import Loader from "../loader/Loader";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const Catalogs = () => {
     let value = useContext(MyContext);
@@ -117,14 +118,7 @@ const Catalogs = () => {
             setCategoryList(response.data);
         })
         document.getElementById("search").focus()
-
-        if (value.searchText.trim().length > 0) {
-            filterProduct()
-        } else {
-            axios.get(`${value.url}/api/v1/product/?main=true`).then((response) => {
-                setProducts(response.data)
-            })
-        }
+        filterProduct()
     }, []);
 
     const filterProduct = () => {
@@ -235,24 +229,43 @@ const Catalogs = () => {
         <Navbar/>
         <div className={`catalog-container ${products.length === 0 ? "v100" : ""}`}>
             <div className="header-side-catalog">
-                <div className="icon-filter">
-                    <div className="top-btn">
+                {/*<div className="icon-filter">*/}
+                {/*    <div className="top-btn">*/}
+                {/*        <img src="./images/panel.png" alt=""/>*/}
+                {/*        <div className="text">*/}
+                {/*            {t("category")}*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*    <div className="category-list">*/}
+                {/*        {categoryList.map((item, index) => {*/}
+                {/*            return <div onClick={() => filterSubcategory(item.id, index)} className="item-category"*/}
+                {/*                        key={index}>*/}
+                {/*                {item.translations[i18next.language].name}*/}
+                {/*            </div>*/}
+                {/*        })}*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
                         <img src="./images/panel.png" alt=""/>
                         <div className="text">
                             {t("category")}
                         </div>
-                    </div>
+                    </Dropdown.Toggle>
 
-                    <div className="category-list">
-                        {categoryList.map((item, index) => {
-                            return <div onClick={() => filterSubcategory(item.id, index)} className="item-category"
-                                        key={index}>
-                                {item.translations[i18next.language].name}
-                            </div>
-                        })}
-                    </div>
+                    <Dropdown.Menu>
+                        {
+                            categoryList.map((item, index) => {
+                                return <Dropdown.Item key={index} onClick={() => filterSubcategory(item.id, index)}>
+                                    {item.translations[i18next.language].name}
+                                </Dropdown.Item>
+                            })
+                        }
+                    </Dropdown.Menu>
+                </Dropdown>
 
-                </div>
+
                 <div className="search-box">
                     <input id="search" value={value.searchText} onChange={(e) => {
                         value.setSearchText(e.target.value)

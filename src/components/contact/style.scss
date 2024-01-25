@@ -229,7 +229,7 @@ $Color2: #001020;
         margin-top: 30px;
 
         .text_title {
-          font-size: 20px;
+          font-size: 26px;
 
           span {
             color: $Color1;
@@ -238,7 +238,7 @@ $Color2: #001020;
 
         .line_title {
           margin-top: -20px;
-          width: 85%;
+          width: 80%;
           height: 40px;
           border-bottom: 1px solid $Color2;
         }
@@ -311,7 +311,7 @@ $Color2: #001020;
           align-items: center;
 
           .img-box {
-            width: 15%;
+            width: 13%;
             img {
               width: 100%;
             }
@@ -323,7 +323,7 @@ $Color2: #001020;
             padding-left: 20px;
 
             .name-box {
-              font-size: 26px;
+              font-size: 24px;
               text-align: start;
             }
 
@@ -336,35 +336,6 @@ $Color2: #001020;
         }
       }
 
-      .form-box {
-        width: 100%;
-        margin-top: 60px;
-        height: 300px;
-        background-color: $Color2;
-        border-radius: 20px;
-        padding: 25px;
-
-        .title-form {
-          font-size: 20px;
-          color: white;
-          font-weight: bold;
-        }
-
-        input {
-          margin-top: 15px;
-          width: 100%;
-          height: 50px;
-          padding-left: 20px;
-          font-size: 18px;
-          border-radius: 8px;
-        }
-
-        .btn-box {
-          margin-top: 30px;
-          width: 100%;
-          justify-content: center;
-        }
-      }
 
     }
 

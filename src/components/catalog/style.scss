@@ -189,8 +189,8 @@ $Color2: #001020;
 
   .catalog-container {
     width: 100%;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 70px;
+    padding-right: 70px;
 
     .header-side-catalog {
       margin-top: 30px;
@@ -253,6 +253,51 @@ $Color2: #001020;
 
             &:hover {
               background-color: #374B87;
+              color: white;
+            }
+          }
+        }
+      }
+
+      .dropdown {
+        .dropdown-toggle {
+          display: flex;
+          align-items: center;
+          padding: 6px 25px 6px 25px;
+          background-color: white;
+          box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+          border: none;
+
+          &:after {
+            color: #4a63a8;
+          }
+
+          img {
+            width: 35px;
+            transition: 0.3s;
+            margin-right: 10px;
+          }
+
+          &:hover {
+            img {
+              transform: scale(1.07);
+            }
+          }
+
+          .text {
+            font-weight: bold;
+            font-size: 20px;
+            color: #4a63a8;
+          }
+        }
+
+        .dropdown-menu {
+          .dropdown-item {
+            height: 35px;
+            display: flex;
+            align-items: center;
+            &:hover {
+              background-color: #4a63a8;
               color: white;
             }
           }
@@ -549,7 +594,7 @@ $Color2: #001020;
   }
 
   .v100 {
-    height: 70vh;
+    height: 80vh;
   }
 }
 
@@ -626,6 +671,55 @@ $Color2: #001020;
 
               &:hover {
                 background-color: #374B87;
+                color: white;
+              }
+            }
+          }
+        }
+
+        .dropdown {
+          width: 100%;
+
+          .dropdown-toggle {
+            margin: 0 auto;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 6px 25px 6px 25px;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+            border: none;
+
+            &:after {
+              color: #4a63a8;
+            }
+
+            img {
+              width: 35px;
+              transition: 0.3s;
+              margin-right: 10px;
+            }
+
+            &:hover {
+              img {
+                transform: scale(1.07);
+              }
+            }
+
+            .text {
+              font-weight: bold;
+              font-size: 20px;
+              color: #4a63a8;
+            }
+          }
+
+          .dropdown-menu {
+            width: 90%;
+
+            .dropdown-item {
+              &:hover {
+                background-color: #4a63a8;
                 color: white;
               }
             }
