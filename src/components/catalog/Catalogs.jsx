@@ -57,7 +57,7 @@ const Catalogs = () => {
             }
         }]
     };
-    const worksPage = 12;
+    const worksPage = 16;
     const [pageNumber, setPageNumber] = useState(0);
     const pagesVisited = pageNumber * worksPage;
     const [searchValidate, setSearchValidate] = useState(false)
@@ -118,7 +118,13 @@ const Catalogs = () => {
             setCategoryList(response.data);
         })
         document.getElementById("search").focus()
-        filterProduct()
+        if (value.searchText) {
+            filterProduct()
+        } else {
+            axios.get(`${value.url}/api/v1/product/?main=true`).then((response) => {
+                setProducts(response.data)
+            })
+        }
     }, []);
 
     const filterProduct = () => {
@@ -143,6 +149,10 @@ const Catalogs = () => {
         axios.get(`${value.url}/api/v1/subcategory/`).then((response) => {
             let newList = response.data.filter((item) => item.category == id)
             setSubcategoryList(newList);
+        })
+
+        axios.get(`${value.url}/api/v1/product/?main-category=${id}`).then((response) => {
+            setProducts(response.data)
         })
     }
 
@@ -192,7 +202,6 @@ const Catalogs = () => {
         >
             <div className="modal-sloy">
                 <div ref={nodeRef} className="modal-card">
-
                     {modalShow.status === "shop" && <div className="shop-box">
                         <div className="cancel-btn">
                             <img onClick={() => showModalForm("", false)} src="./images/x.png" alt=""/>
@@ -214,7 +223,6 @@ const Catalogs = () => {
                         </div>
 
                     </div>}
-
                 </div>
                 {modalShow.status === "success" && <div className="success-box">
                     <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
@@ -229,23 +237,6 @@ const Catalogs = () => {
         <Navbar/>
         <div className={`catalog-container ${products.length === 0 ? "v100" : ""}`}>
             <div className="header-side-catalog">
-                {/*<div className="icon-filter">*/}
-                {/*    <div className="top-btn">*/}
-                {/*        <img src="./images/panel.png" alt=""/>*/}
-                {/*        <div className="text">*/}
-                {/*            {t("category")}*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*    <div className="category-list">*/}
-                {/*        {categoryList.map((item, index) => {*/}
-                {/*            return <div onClick={() => filterSubcategory(item.id, index)} className="item-category"*/}
-                {/*                        key={index}>*/}
-                {/*                {item.translations[i18next.language].name}*/}
-                {/*            </div>*/}
-                {/*        })}*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                         <img src="./images/panel.png" alt=""/>
@@ -264,8 +255,6 @@ const Catalogs = () => {
                         }
                     </Dropdown.Menu>
                 </Dropdown>
-
-
                 <div className="search-box">
                     <input id="search" value={value.searchText} onChange={(e) => {
                         value.setSearchText(e.target.value)
@@ -299,7 +288,7 @@ const Catalogs = () => {
             </div>
 
             <div className="content">
-                <div className="row">
+                <div className={`row ${products.length >= 4 ? "space-between" : ""}`}>
                     {searchValidate ? <div className="serach-validate">{t("searchValidate")}</div> : ""}
                     {loader ? <Loader/> : displayWorks}
                 </div>
