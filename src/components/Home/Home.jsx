@@ -34,6 +34,9 @@ const Home = () => {
     const [countProduct, setCountProduct] = useState("")
     const [counterOn, setCounterOn] = useState(false)
 
+
+
+
     useEffect(() => {
         axios.get(`${value.url}/api/v1/photo/dashboard/`).then((response) => {
             setHomePhoto(response.data);
